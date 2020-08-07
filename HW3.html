@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //Задание 2
+    // помощью цикла for написать алгоритм для вывода чисел от 0 до 10 включительно, чтобы результат выглядел так:
+    //0 – это ноль
+    //1 – нечетное число
+    //2 – четное число
+    //3 – нечетное число
+    //…
+    //10 – четное число
+    "use strict";
+    for (let i = 0; i < 11; i++) {
+        if (i == 0) {
+            console.log("0 – это ноль");
+        } else if (i % 2 == 0) {
+            console.log(i + " – это четное число");
+        } else {
+            console.log(i + " – это нечетное число");
+        }
+    }
+</script>
+<script>
+    //Задание 3
+    //Выведите в консоль значения, указанные рядом с комментариями:
+
+    const post = {  author: "John", //вывести этот текст
+        postId: 23,
+        comments: [
+            {
+                userId: 10,
+                userName: "Alex",
+                text: "lorem ipsum",
+                rating:
+                    {
+                        likes: 10,
+                        dislikes: 2 //вывести это число
+                    }
+            },
+            {
+                userId: 5, //вывести это число
+                userName: "Jane",
+                text: "lorem ipsum 2", //вывести этот текст
+                rating:
+                    {
+                        likes: 3,
+                        dislikes: 1
+                    }
+            },
+        ]
+    }
+
+    console.log(post.author)
+    console.log(post.comments[0].rating.dislikes)
+    console.log(post.comments[1].userId)
+    console.log(post.comments[1].text)
+</script>
+<script>
+    //Задание 4
+    //Перед вами находится массив с продуктами, сегодня распродажа и
+    //вам нужно на каждый товар применить скидку 15%
+
+    const products = [
+        {
+            id: 3,
+            price: 200,
+        },
+        {
+            id: 4,
+            price: 900,
+        },
+        {
+            id: 1,
+            price: 1000,
+        },
+    ];
+
+    let discount = 0.85;
+
+    products.forEach(
+        function (number, index) {
+            products[index].price = products[index].price * discount;
+        }
+    );
+
+</script>
+<script>
+    //Задание 5
+    //Перед вами находится массив с продуктами в интернет-магазине. Вам нужно:
+    //1. Получить все товары, у которых есть фотографии
+    //2. Отсортируйте товары по цене (от низкой цены к высокой)
+
+    const products = [
+        {
+            id: 3,
+            price: 127,
+            photos: ["1.jpg", "2.jpg"]
+        },
+        {
+            id: 5,
+            price: 499,
+            photos: []
+        },
+        {
+            id: 10,
+            price: 26,
+            photos: ["3.jpg"]
+        },
+        {
+            id: 8,
+            price: 78,
+        },
+    ];
+
+    function filterByPhoto(item) {
+        if (item.photos !== undefined && item.photos.length > 0) {
+            return true;
+        }
+    }
+
+    let productFilterByPhoto = products.filter(filterByPhoto)
+
+    products.sort(function (a, b) {
+        if (a.price > b.price) {
+            return 1;
+        }
+        if (a.price < b.price) {
+            return -1;
+        }
+        return 0;
+    });
+
+</script>
+</body>
+</html>
